@@ -30,8 +30,11 @@ document.getElementById('w-change-btn').addEventListener('click', (e) => {
 function getWeather() {
   weather.getWeather()
     .then(results => {
-      console.log(results);
-      ui.paint(results);
+      if (results.cod === "404") {
+        ui.showAlert('No se encontró esa ciudad. Introduce una ciudad válida', 'bg-danger text-light');
+      } else {
+        ui.paint(results);
+      }
     })
     .catch(err => console.log(err));
 }

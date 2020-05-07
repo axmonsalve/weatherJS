@@ -19,10 +19,28 @@ class UI {
     this.location.textContent = weatherResult.name;
     this.desc.textContent = weatherResult.weather[0].description;
     this.string.textContent = parseFloat(weatherResult.main.temp - kelvin, 10).toFixed(1);
-    this.humidity.textContent = weatherResult.main.humidity;
+    this.humidity.textContent = `Humedad relativa: ${weatherResult.main.humidity}%`;
     this.feelsLike.textContent = `Sensación térmica: ${parseFloat(weatherResult.main.feels_like - kelvin, 10).toFixed(1)} °C`;
     this.wind.textContent = `Viento ${parseFloat(weatherResult.wind.speed * 3.60, 10).toFixed(1)} Km/h.`;
 
     this.icon.setAttribute('src', iconUrl);
+
+  }
+
+  showAlert(msg, cls) {
+    //Create div
+    const div = document.createElement('div');
+    div.className = cls;
+    div.appendChild(document.createTextNode(msg));
+
+    const containerRow = document.querySelector('.cont');
+    const detailsContainer = document.getElementById('detailsContainer');
+
+    containerRow.insertBefore(div, detailsContainer);
+
+    setTimeout(() => {
+      div.remove();
+    }, 3000);
+
   }
 }

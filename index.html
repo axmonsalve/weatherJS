@@ -12,18 +12,21 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-6 mx-auto text-center bg-primary mt-5 rounded">
+      <div class="col-md-6 mx-auto text-center bg-primary mt-5 rounded cont">
         <h1 id="w-location"></h1>
         <h3 class="text-dark" id="w-desc"></h3>
         <p><span class="h3 text-dark" id="w-string"></span> <span class="h4 text-dark font-weight-lighter "> &#x2103;</span></p>
         <img id="w-icon">
-        <ul id="w-details" class="list-group mt-3">
-          <li class="list-group-item">Humedad Relativa: <span id="w-humidity"></span>%</li>
-          <li class="list-group-item" id="w-feels-like"></li>
-          <li class="list-group-item" id="w-wind"></li>
-        </ul>
+        <div id="detailsContainer">
+          <ul id="w-details" class="list-group mt-3">
+            <li class="list-group-item" id="w-humidity"></li>
+            <li class="list-group-item" id="w-feels-like"></li>
+            <li class="list-group-item" id="w-wind"></li>
+          </ul>
+        </div>
         <hr>
-        <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#locModal">
+        <!-- <div id="error" class="d-none">asd</div> -->
+        <button id="btnChangeLocation" type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#locModal">
           Cambiar Ubicación
         </button>
       </div>
